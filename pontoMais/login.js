@@ -9,7 +9,7 @@ function loginUser(User, password) {
       })
         .then(response => response.text())
         .then(data => setTokens(data))
-        .catch(error => console.error('Error:', error));
+        .catch(error => errorLogin());
 }
 
 function setTokens(data) {
@@ -25,6 +25,10 @@ function setTokens(data) {
   } catch (error) {
     console.error('Error parsing JSON:', error);
   }
+}
+
+function errorLogin() {
+  alert('Erro Usuario ou senha Incorreto');
 }
 
 document.getElementById('loginButton').addEventListener('click', () => {
