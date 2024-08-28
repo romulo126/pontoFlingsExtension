@@ -21,7 +21,7 @@ function setTokens(data) {
     localStorage.setItem('loginPontoFlings', jsonData.data.login);
     localStorage.setItem('pontoFlingsStatus', true);
     workDataTime();
-    
+    showNone('loginPontoFlings');
   } catch (error) {
     console.error('Error parsing JSON:', error);
   }
