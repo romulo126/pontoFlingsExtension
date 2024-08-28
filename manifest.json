@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Ponto Flings",
+    "description": "Ponto Flings",
+    "version": "1.0",
+    "icons": {
+        "16": "icon/pontoFling.png",
+        "48": "icon/pontoFling.png",
+        "128": "icon/pontoFling.png"
+    },
+    "permissions": [
+        "<all_urls>",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "host_permissions"
+    ],
+    "action": {
+        "default_icon": "icon/pontoFling.png",
+        "default_popup": "popup.html",
+        "content_scripts": [
+            {
+                "matches": ["<all_urls>"],
+                "js": [
+                        "pontoMais/login.js",
+                        "pontoMais/workTime.js",
+                        "pontoMais/ponto.js",
+                        "popup.js",
+                        "pontoMais/pointOfTheDay.js"]
+            }
+        ]
+    },
+    "host_permissions": [
+        "https://api.pontomais.com.br/*"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [{
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+        }]
+    }
+}

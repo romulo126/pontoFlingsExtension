@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ponto Flings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+      }
+      div#loginPontoFlings {
+        display: none;
+        width: 200px;
+      }
+      div#detalheDosHorario {
+        display: none;
+      }
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse; /* Para que as bordas não fiquem duplicadas */
+      }
+      th, td {
+        padding: 8px; /* Adiciona algum espaçamento dentro das células */
+        text-align: left; /* Alinha o texto à esquerda */
+      }
+     
+      .btn-green {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+      .btn-red {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="loginPontoFlings">
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="loginButton">Login</button>
+    </div>
+
+    <div id="detalheDosHorario">
+      <div>
+        <button class="btn-green" id="entradaButton">Bater Entrada</button>
+        <button class="btn-red" id="saidaButton">Bater Saida</button>
+      </div>
+      
+      <table id="tableDetalheDosHorario">
+          <thead>
+            <th>Data</th>
+            <th>Ultima Entrada</th>
+            <th>Ultima Saida</th>
+            <th>Horas extras</th>
+            <th>Horas faltantes</th>
+            <th>Saldo</th>
+            <th>Horas Trabalhadas</th>
+          </thead>
+          <tbody id="tableTbodyDetalheDosHorario"></tbody>
+      </table>
+    </div>
+    <script src="pontoMais/pointOfTheDay.js"></script>
+    <script src="pontoMais/workTime.js"></script>
+    <script src="pontoMais/login.js"></script>
+    <script src="pontoMais/ponto.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
