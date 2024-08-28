@@ -45,4 +45,4 @@
 Contribuições são bem-vindas! Se você encontrar bugs ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## Projeto Expiração
-[Projeto que expirou a extenção] (https://github.com/MaicomMR/ponto-flings/tree/main)
+[Projeto que expirou a extenção](https://github.com/MaicomMR/ponto-flings/tree/main)
