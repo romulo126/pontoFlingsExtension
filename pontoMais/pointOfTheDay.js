@@ -6,7 +6,7 @@ function getPoints(dataFormat, token, clientId, uid) {
             "client": clientId,
             "uid": uid,
             "token": token,
-            "uuid": 'bbbc2c51-65a7-426c-86c0-53c67200c382',
+            "uuid": generateRandomHash(),
             "access-token": token
           },
       })
@@ -33,19 +33,10 @@ function workDay(data) {
 function checkTypePoint(points) {
     const numberOfRecords = points.length;
 
-    if (numberOfRecords == 0) {
-        showNone('saidaButton');
-        show('entradaButton');
-
-        return;
-    }
-
     if (numberOfRecords % 2 === 0) {
-        console.log('saida')
         showNone('saidaButton');
         show('entradaButton');
     } else {
-        console.log('entrada')
         show('saidaButton');
         showNone('entradaButton');
     }
@@ -121,4 +112,23 @@ function incrementTime(timeString) {
     const formattedSeconds = String(seconds).padStart(2, '0');
 
     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
+
+function generateRandomHash() {
+    // Cria um array de 16 bytes aleatórios (128 bits)
+    const array = new Uint8Array(16);
+    window.crypto.getRandomValues(array);
+
+    // Ajusta os valores para que correspondam ao formato UUID (versão 4)
+    array[6] = (array[6] & 0x0f) | 0x40; // Versão 4
+    array[8] = (array[8] & 0x3f) | 0x80; // Variante RFC 4122
+
+    // Converte os valores para o formato UUID
+    const uuid = [...array].map((byte, index) => {
+        const hex = byte.toString(16).padStart(2, '0');
+        // Adiciona hifens nos lugares apropriados
+        return [4, 6, 8, 10].includes(index) ? `-${hex}` : hex;
+    }).join('');
+
+    return uuid;
 }

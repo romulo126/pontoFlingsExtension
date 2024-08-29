@@ -12,7 +12,7 @@ function workDataTime() {
             "client": clientId,
             "uid": uid,
             "token": token,
-            "uuid": 'bbbc2c51-65a7-426c-86c0-53c67200c38a',
+            "uuid": generateRandomHash(),
             "access-token": token
           },
       })
@@ -33,7 +33,7 @@ function getSession(){
             "client": clientId,
             "uid": uid,
             "token": token,
-            "uuid": 'bbbc2c51-65a7-426c-86c0-53c67200c38a',
+            "uuid": generateRandomHash(),
             "access-token": token
           },
       })

@@ -56,16 +56,63 @@
             cursor: pointer;
             display: none;
         }
+
+      #loginButton:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      #saidaButton:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      #entradaButton:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      #loadingIcon {
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      #loginButton {
+        background-color: green;
+      }
+
+      #loadingOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Garante que o overlay fique sobre outros elementos */
+      }
     </style>
   </head>
   <body>
+    <div id="loadingOverlay" style="display: none;">
+      <svg id="loadingIcon" width="50" height="50" viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="20" fill="none" stroke-width="5" stroke="#333" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)">
+          <animateTransform attributeName="transform" type="rotate" begin="0s" dur="1s" from="0 25 25" to="360 25 25" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
     <div id="loginPontoFlings">
+
+      <div id="erroLogin"></div>
       <input type="text" id="username" placeholder="Username" />
       <input type="password" id="password" placeholder="Password" />
       <button id="loginButton">Login</button>
     </div>
 
     <div id="detalheDosHorario">
+      <div id="erroPonto"></div>
       <div>
         <button class="btn-green" id="entradaButton">Bater Entrada</button>
         <button class="btn-red" id="saidaButton">Bater Saida</button>
